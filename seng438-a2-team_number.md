@@ -20,7 +20,9 @@ Boundary Value Testing and what values and classes are appropriate given a set o
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+For the Range class located in the org.jfree.data package, this is the perfect class to test BVT since the entire class depends on a set range of
+numerical values. Since under BBT, we can only rely on the documentation provided to us without access to the source code, we expect the class methods to compile and pass or fail under proper test inputs and ranges. For example, in the method Range.contains(double value) which returns a boolean value to denote whether or not a value is contained in the range defined by the constructor. We can create a range such as [100, 999]
+and split it into 3 ranges. Values less than 100, a value in the range, a value greater than 999.
 
 # 3 Test cases developed
 
