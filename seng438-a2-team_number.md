@@ -30,7 +30,7 @@ As with the DataUtilies class that accepts interfaces as arguements, we need Moc
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
 
-Range Class Test Stubs: 
+Range Class Test Stubs:   
 1.) boolean contains(double value)
 -     Returns true if the specified value is within the range and false otherwise.
 -     Variable domains: value: a double numberical value in the table.
