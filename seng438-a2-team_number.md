@@ -26,12 +26,15 @@ and test AUB = 1000, BUB = 900, UB = 999, LB = 100, BLB = 60, ALB = 105, NOM = 5
 As with the DataUtilies class that accepts interfaces as arguements, we need Mocking framework such as Mockito to create dummy objects of the interfaces. After creating the dummy objects we will use ECT partitioning. Dividing cases depending on what values are allowed into the table or that are currently in the table and a case if there is invalid input in the table which should return 0 in DataUtilities.calculateRowTotal() for example.
 
 # 3 Test cases developed
-
-Text…
-
 // write down the name of the test methods and classes. Organize the based on
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
+
+Range Class Test Stubs: 
+1.) boolean contains(double value)
+-     Returns true if the specified value is within the range and false otherwise.
+-     Variable domains: value: a double numberical value in the table.
+-     BBT Technique: BVT
 
 # 4 How the team work/effort was divided and managed
 
