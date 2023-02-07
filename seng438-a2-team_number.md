@@ -35,11 +35,12 @@ Range Class Test Stubs:
 -    Returns true if the specified value is within the range and false otherwise.
 -    Variable domains: value: a double numberical value in the table.
 -    BBT Technique: BVT
--    Example range and boundary values chosen: 
+-    Example range and boundary values chosen:   
 2.) double constrain(double value)
 -    Returns the value within the range that is closest to the specified value.
 -    Variable domainL value --> a double numerical value in the table.
 -    BBT Technique: BVT
+-    Example range and boundary values chosen:
 
 # 4 How the team work/effort was divided and managed
 
