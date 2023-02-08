@@ -26,13 +26,29 @@ and test AUB = 1000, BUB = 900, UB = 999, LB = 100, BLB = 60, ALB = 105, NOM = 5
 As with the DataUtilies class that accepts interfaces as arguements, we need Mocking framework such as Mockito to create dummy objects of the interfaces. After creating the dummy objects we will use ECT partitioning. Dividing cases depending on what values are allowed into the table or that are currently in the table and a case if there is invalid input in the table which should return 0 in DataUtilities.calculateRowTotal() for example.
 
 # 3 Test cases developed
+Range Class Test Stubs:   
+1.) boolean contains(double value)
+-    Returns true if the specified value is within the range and false otherwise.
+-    Variable domains: value: a double numberical value in the table.
+-    BBT Technique: BVT
+-    Example range and boundary values chosen: 1, 0
 
-Text…
+2.) static Range combine(Range r1, Range r2):
+-    Returns a combined range from the arguements. If a range is null, it returns the existing range.
+-    If both ranges are null, it should return null.
+-    BBT Techiques: BVT and ECT
+-    Checking the boundaries and nominal values, checking out of bound ranges, and checking if the return value
+is a range or is null.
 
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
+3.) static Range expandToInclude(Range range, double value)
+-    Returns a range that includes all the values in the specified range AND contains the specified value.
+-    Variable domain: range --> the current range object we created, value --> the value that we want the new range to contain.
+-    BBT Technique: ECP --> Classes: [Lower Bound], [Upper Bound], [Nominal Value], [Arguement Value], [Invalid Value].
 
+4.) boolean	intersects(double lower, double upper)
+-    Returns true if the range intersects (overlaps) with the specified range, and false otherwise.
+-    Variable domain: lower and upper bounds, numerical values in the table.
+-    BBT: ECP --> Classes: [A range that overlaps], [A range that does not overlap].
 # 4 How the team work/effort was divided and managed
 
 Text…
