@@ -48,7 +48,13 @@ is a range or is null.
 4.) boolean	intersects(double lower, double upper)
 -    Returns true if the range intersects (overlaps) with the specified range, and false otherwise.
 -    Variable domain: lower and upper bounds, numerical values in the table.
--    BBT: ECP --> Classes: [A range that overlaps], [A range that does not overlap].
+-    BBT Technique: ECP --> Classes: [A range that overlaps], [A range that does not overlap].
+
+5.) public static Range shift(Range base, double delta)
+-    Shifts the range given by "delta" spaces over to the right or left if delta is negative. 
+Effectively changing the upper and lower bounds by delta.
+-    Variable domain: base --> the current Range. double delta --> How much to shift the range by.
+-    BBT Technique: BVT for testing the new ranges after shifting by delta.
 # 4 How the team work/effort was divided and managed
 
 Text…
