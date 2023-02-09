@@ -55,6 +55,25 @@ is a range or is null.
 Effectively changing the upper and lower bounds by delta.
 -    Variable domain: base --> the current Range. double delta --> How much to shift the range by.
 -    BBT Technique: BVT for testing the new ranges after shifting by delta.
+
+DataUtilities Class Mocks and Test Stubs:
+1.) static double	calculateColumnTotal(Values2D data, int column)
+-   Returns the sum of the values in one column of the supplied data table.
+-   Domain: data --> Data Table, column --> Which column to access in the data table.
+
+2.) static double	calculateRowTotal(Values2D data, int row)
+-   Returns the sum of the values in one row of the supplied data table.
+-   Domain: data --> The Data Table object, row --> Which row number to access in the data table.
+
+3.) static java.lang.Number[]	createNumberArray(double[] data)
+-   Constructs an array of Number objects from an array of double primitives.
+
+4.) static java.lang.Number[][]	createNumberArray2D(double[][] data)
+-   Constructs an array of arrays of Number objects from a corresponding structure containing double primitives.
+
+5.) static KeyedValues	getCumulativePercentages(KeyedValues data)
+-   Returns a KeyedValues instance that contains the cumulative percentage values for the data in another KeyedValues instance.
+
 # 4 How the team work/effort was divided and managed
 
 Text…
