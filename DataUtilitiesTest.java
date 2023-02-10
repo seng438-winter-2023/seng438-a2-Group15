@@ -1,8 +1,8 @@
 package org.jfree.data.test;
 
 import static org.junit.Assert.*;
-
 import org.jfree.data.DataUtilities;
+import org.jfree.data.DefaultKeyedValues;
 import org.jfree.data.KeyedValues;
 import org.jfree.data.Values2D;
 import org.jmock.*;
@@ -17,6 +17,8 @@ public class DataUtilitiesTest
 	/*Mocking the interfaces*/
 	static Values2D values;
 	static KeyedValues kv;
+	
+	/*Mocking object*/
 	static Mockery mockO;
 	
 	@Before
@@ -47,16 +49,16 @@ public class DataUtilitiesTest
 	    // tear-down: NONE in this test method
 	}
 	@Test
-	public void testColumnSumInvalid() 
+	public void testColumnCount() 
 	{
 	    // setup
 	    mockO.checking(new Expectations() {
 	        {
-	            one(values).getRowCount();
+	            oneOf(values).getRowCount();
 	            will(returnValue(2));
-	            one(values).getValue(0, 0);
+	            oneOf(values).getValue(0, 0);
 	            will(returnValue(7.5));
-	            one(values).getValue(1, 0);
+	            oneOf(values).getValue(1, 0);
 	            will(returnValue(2.5));
 	        }
 	    });
@@ -73,13 +75,13 @@ public class DataUtilitiesTest
 		{
 			
 			{
-				one(values).getColumnCount();
+				oneOf(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(0, 0);
+				oneOf(values).getValue(0, 0);
 				will(returnValue(4.5));
-				one(values).getValue(0, 1);
+				oneOf(values).getValue(0, 1);
 				will(returnValue(7.8));
-				one(values).getValue(0, 2);
+				oneOf(values).getValue(0, 2);
 				will(returnValue(10.123));
 			}
 		});
@@ -112,14 +114,91 @@ public class DataUtilitiesTest
 		assertEquals("Value was not found ", 7.1234, numsData[0][1]);
 	}
 	@Test
-	public void testCreateNumArray2DNotExists() /**DEFECTIVE**/
+	public void testCreateNumArray2DNotExists()
 	{
 		double[][] data = {{1.0, 2.01}, {5.60, 7.1234}, {1.11, 8.90}};
 		Number[][] numsData = DataUtilities.createNumberArray2D(data);
 		assertEquals("Value was not found ", false, numsData[0][0].equals(3.0));
 	}
 	/**------------------ TESTING getCulmulativePercentages -------------------------------------**/
+	@Test
+	public void testCheckItemCountEmpty() 
+	{
+		mockO.checking(new Expectations() {
+			 {
+				 oneOf(kv).getItemCount();
+			 }
+		 });
+		 assertEquals("Something exists that shouldn't", 0, kv.getItemCount());
+	}
 	
+	@Test
+	public void testPercentage() /**DEFECTIVE**/
+	{
+		mockO.checking(new Expectations() {
+			{
+				/*BUILDS THE TABLE*/
+				allowing(kv).getItemCount();
+				will(returnValue(4));
+				
+				allowing(kv).getKey(0);
+				will(returnValue(0));
+				allowing(kv).getKey(1);
+				will(returnValue(1));
+				allowing(kv).getKey(2);
+				will(returnValue(2));
+				allowing(kv).getKey(3);
+				will(returnValue(3));
+				
+				allowing(kv).getValue(0);
+				will(returnValue(5));
+				allowing(kv).getValue(1);
+				will(returnValue(10));
+				allowing(kv).getValue(2);
+				will(returnValue(15));
+				allowing(kv).getValue(3);
+				will(returnValue(20));
+				
+			}
+		});
+		
+		KeyedValues result = DataUtilities.getCumulativePercentages(kv);
+		assertEquals(0.6, result.getValue(2));
+	}
+	
+	@Test
+	public void testPercentageZero()
+	{
+		mockO.checking(new Expectations() {
+			{
+				/*BUILDS THE TABLE*/
+				allowing(kv).getItemCount();
+				will(returnValue(4));
+				
+				allowing(kv).getKey(0);
+				will(returnValue(0));
+				allowing(kv).getKey(1);
+				will(returnValue(1));
+				allowing(kv).getKey(2);
+				will(returnValue(2));
+				allowing(kv).getKey(3);
+				will(returnValue(3));
+				
+				allowing(kv).getValue(0);
+				will(returnValue(0));
+				allowing(kv).getValue(1);
+				will(returnValue(0));
+				allowing(kv).getValue(2);
+				will(returnValue(15));
+				allowing(kv).getValue(3);
+				will(returnValue(20));
+				
+			}
+		});
+		
+		KeyedValues result = DataUtilities.getCumulativePercentages(kv);
+		assertEquals(0.0, result.getValue(1));
+	}
 	
 	/*--------------------------------------------------------------------------------------------------------------------------*/
     /*After, destroys the object, Java has automatic garbage collection.*/
