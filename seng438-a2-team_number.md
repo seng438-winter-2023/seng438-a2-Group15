@@ -55,6 +55,35 @@ is a range or is null.
 Effectively changing the upper and lower bounds by delta.
 -    Variable domain: base --> the current Range. double delta --> How much to shift the range by.
 -    BBT Technique: BVT for testing the new ranges after shifting by delta.
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+DataUtilities Class Mocks and Test Stubs:  
+1.) static double calculateColumnTotal(Values2D data, int column)
+-   Returns the sum of the values in one column of the supplied data table.
+-   Domain: data --> Data Table, column --> Which column to access in the data table.
+-   BBT Technique: ECT --> [Checking if the sum in column is correct or not].
+
+2.) static double	calculateRowTotal(Values2D data, int row)
+-   Returns the sum of the values in one row of the supplied data table.
+-   Domain: data --> The Data Table object, row --> Which row number to access in the data table.
+-   BBT Technique: ECT --> [Checking if the sum in row is correct or not].
+
+3.) static java.lang.Number[] createNumberArray(double[] data)
+-   Constructs an array of Number (Abstract Class for Wrapper Data type classes like Double, Integer, Boolean etc.) objects from an array of double primitives.
+-   Domain: data --> An array of double primitives.
+-   BBT Technique: ECT --> [A value that should exist]
+
+4.) static java.lang.Number[][]	createNumberArray2D(double[][] data)
+-   Constructs an array of arrays of Number objects from a corresponding structure containing double primitives.
+-   Domain: data --> An array of double primitives.
+-   BBT Technique: ECT --> [A value that should exist], [A value that should not exist.]
+
+5.) static KeyedValues	getCumulativePercentages(KeyedValues data)
+-   Returns a KeyedValues instance that contains the cumulative percentage values for the data in another KeyedValues instance.
+-   Domain: data --> A Key-value pair
+-   BBT Technique: ECT --> [Ensure correct percentage values], [Incorrect percentage values], [Checking Zero values, giving zero percent]
+
 # 4 How the team work/effort was divided and managed
 
 Text…
