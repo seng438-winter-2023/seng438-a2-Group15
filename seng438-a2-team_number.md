@@ -86,12 +86,12 @@ DataUtilities Class Mocks and Test Stubs:
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+We all worked on the lab as team.Everyone helped each other to understand the assignment and complete their tasks. Each of us did develop the test cases for the classes and then worked on the cases together.
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+We didnot specifcally encoutered any problems. Couple of our team members were sick for a week so we had to re distribute the tasks to each other. We learned how to mitigate our tasks during unexpected circumstances.
 
 # 6 Comments/feedback on the lab itself
 
-Text…
+Overall, it was a great way of learning and applying unit testing knowledge
