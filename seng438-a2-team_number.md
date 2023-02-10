@@ -82,7 +82,7 @@ DataUtilities Class Mocks and Test Stubs:
 5.) static KeyedValues	getCumulativePercentages(KeyedValues data)
 -   Returns a KeyedValues instance that contains the cumulative percentage values for the data in another KeyedValues instance.
 -   Domain: data --> A Key-value pair
--   BBT Technique: ECT --> [Ensure correct percentage values], [Incorrect percentage values]
+-   BBT Technique: ECT --> [Ensure correct percentage values], [Incorrect percentage values], [Checking Zero values, giving zero percent]
 
 # 4 How the team work/effort was divided and managed
 
